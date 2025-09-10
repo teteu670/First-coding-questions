@@ -1,0 +1,79 @@
+#include<stdio.h>
+int main() {
+
+        int opcao, escolha;
+
+        printf("esocolha uma opcao:\n");
+        printf("1 - alterar idioma\n");
+        printf("2 - alterar brilho\n");
+        printf("3 - ativar/desativar wifi\n");
+        printf("4 - ativar modo claro ou escuro\n");
+
+        scanf("%d", &opcao);
+        switch(opcao) {
+            case 1: 
+            printf("escolha um idioma:\n1 - portugues\n2 - ingles\n3 - espanhol\n");
+            scanf("%d", &escolha);
+            switch(escolha){
+                case 1:
+                    printf("idioma alterado para portugues\n");
+                    break;
+                case 2:
+                    printf("idioma alterado para ingles\n");
+                    break;
+                case 3:
+                    printf("idioma alterado para espanhol\n");
+                    break;
+                default:
+                    printf("opcao invalida\n");
+            } 
+            break;
+            case 2:
+                printf("escolha o brilho:\n1 - baixo\n2 - medio\n3 - alto\n");
+                scanf("%d", &escolha);
+                switch(escolha) {
+                    case 1:
+                        printf("brilho alterado para baixo\n");
+                        break;
+                    case 2:
+                        printf("brilho alterado para medio\n");
+                        break;
+                    case 3:
+                        printf("brilho alterado para alto\n");
+                        break;
+                    default:
+                        printf("opcao invalida\n");
+                }
+                break;
+
+            case 3:
+                printf("ativar ou desativar wifi:\n1 - ativar\n2 - desativar\n");
+                scanf("%d", &escolha);
+                switch(escolha) {
+                    case 1:
+                        printf("wifi ativado\n");
+                        break;
+                    case 2:
+                        printf("wifi desativado\n");
+                        break;
+                    default:
+                        printf("opcao invalida\n");
+                }
+                break;
+
+            case 4:
+                printf("ativar modo claro ou escuro:\n1 - claro\n2 - escuro\n");
+                scanf("%d", &escolha);
+                switch(escolha) {
+                    case 1:
+                        printf("modo claro ativado\n");
+                        break;
+                    case 2:
+                        printf("modo escuro ativado\n");
+                        break;
+                    default:
+                        printf("opcao invalida\n");
+                }
+                break;
+            }
+}
