@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double p, r = 0.05, a;
+    int n;
+
+    printf("Digite o valor a ser investido ");
+    scanf("%lf", &p); 
+
+    printf("valor acumulado em um total de um ano");
+
+    for (n = 1; n <= 10; n++) {
+        a = p * pow(1 + r, n); 
+        printf("%d\t%.2f\n", n, a);
+    }
+
+}
