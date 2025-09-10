@@ -1,94 +1,40 @@
 # First-coding-questions
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <math.h>
+int main(){
 
-void exibirStatus(int vidaJogador, int vidaMonstro) {
-    printf("\n==========================\n");
-    printf("Vida do Jogador: %d\n", vidaJogador);
-    printf("Vida do Monstro: %d\n", vidaMonstro);
-    printf("==========================\n");
-}
 
-int main() {
-    int vidaJogador = 100, vidaMonstro = 100;
-    int escolha, danoJogador, danoMonstro, defesa = 0;
+	int n1,aux,soma,contador,dig,num;
 
-    srand(time(NULL));
+	printf("Digite um numero: ");
+	scanf("%i",&num);
 
-    printf("Jogo da sorte\n");
+	for(int i = 1; i <=num;i++){
 
-    while (vidaJogador > 0 && vidaMonstro > 0) {
-        exibirStatus(vidaJogador, vidaMonstro);
+	aux = i;
+	contador=0;
+	soma = 0;
+	
+	while(aux>0){
+	
+	aux/=10;
+	contador++;
+	
+	}
 
-        printf("\nEscolha sua acao:\n");
-        printf("1. Atacar\n");
-        printf("2. Defender\n");
-        printf("3. Curar\n");
-        printf("Sua escolha: ");
-        scanf("%d", &escolha);
+	aux = num;
 
-        switch (escolha) {
-            case 1:
-                danoJogador = rand() % 20 + 10;
-                vidaMonstro -= danoJogador;
-                printf("Voce atacou e causou %d de dano!\n", danoJogador);
-                defesa = 0;
-                break;
-            case 2:
-                printf("Voce se defendeu! Proxima ataque do monstro sera reduzido.\n");
-                defesa = 1;
-                break;
-            case 3:
-                danoJogador = rand() % 20 + 10;
-                vidaJogador += danoJogador;
-                if (vidaJogador > 100) vidaJogador = 100;
-                printf("Voce se curou em %d pontos de vida!\n", danoJogador);
-                defesa = 0;
-                break;
-            default:
-                printf("Opcao invalida. Voce perdeu o turno.\n");
-                defesa = 0;
-                break;
-        }
+	while(aux>0){
+	
+	dig%=10;
+	aux/=10;
+	soma += pow(dig,contador);
+		
+	}
 
-        if (vidaMonstro > 0) {
-            danoMonstro = rand() % 25 + 5;
-            if (defesa)
-                danoMonstro /= 2;
-            vidaJogador -= danoMonstro;
-            printf("O monstro atacou e causou %d de dano!\n", danoMonstro);
-        }
-    }
+	if(num == soma) printf("Numero de armstrong");}
 
-    if (vidaJogador <= 0 && vidaMonstro <= 0) {
-        printf("\nEmpate! Ambos morreram.\n");
-    } else if (vidaJogador <= 0) {
-        printf("\nVoce perdeu! O monstro venceu.\n");
-    } else {
-        printf("\nVoce venceu o monstro! Parabens!\n");
-    }
 
-    return 0;
+
 }
