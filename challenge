@@ -1,0 +1,54 @@
+#include <stdio.h>
+int main() {
+
+    int codigo_produto, codigo_pais;
+    float imposto, peso_quilos, preco_grama,preco_total, valor_total, taxa_imposto, peso_gramas;
+
+    printf("Digite o codigo do produto:\n");
+    scanf("%d", &codigo_produto);
+
+    printf("digite o codigo do pais:\n ");
+    scanf("%d", &codigo_pais);
+
+    if (codigo_pais == 1 ) {
+        imposto = 0;
+    } else if(codigo_pais == 2 ) {
+        imposto = 0.15;
+    } else if (codigo_pais == 3 ) {
+        imposto = 0.25;
+    } else {
+        printf("Codigo do pais invalido\n");
+        return 1;
+    }
+
+    peso_gramas = peso_quilos * 1000;
+
+    if (codigo_produto >= 1 && codigo_produto <= 4) {
+        preco_grama = 10;
+    } else if (codigo_produto >= 5 && codigo_produto <= 7) {
+        preco_grama = 25;
+    } else if (codigo_produto >= 8 && codigo_produto <= 10) {
+        preco_grama = 35;
+    } else {
+        printf("Codigo de produto invalido.\n");
+    }
+
+    preco_total = peso_gramas * preco_grama;
+
+    switch(codigo_pais) {
+        case 1 : taxa_imposto = 0.0; break;
+        case 2 : taxa_imposto = 0.15; break;
+        case 3 : taxa_imposto = 0.25; break;
+        default : printf("codigo invalido\n"); break;
+    }
+        imposto = preco_total * taxa_imposto;
+
+        valor_total= preco_total + imposto;
+
+        printf("\nResultados:\n");
+        printf("1. Peso do produto em gramas: %.2f g\n", peso_gramas);
+        printf("2. Preco total do produto: R$ %.2f\n", preco_total);
+        printf("3. Valor do imposto: R$ %.2f\n", imposto);
+        printf("4. Valor total com imposto: R$ %.2f\n", valor_total);
+
+}
