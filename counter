@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	float num=0,total=0,contador=0, min=INFINITY, max= -INFINITY,totalpar,contadorpar=0;
+
+	while(1)
+	{
+	printf("digite um numero: ");
+	scanf("%f",&num);
+
+	total = total + num;
+	contador++;
+
+	if (num>30000)
+	break;
+
+	if(num>= max)
+	max=num;
+	
+	if(num<=min)
+	min=num;
+
+	if (((int)num)%2==0)
+	{
+	totalpar = totalpar + num;
+	contadorpar++;
+	}
+
+
+	}
+	
+	printf("estatisticas: \n");
+	printf("total dos numeros: %f\n", total);
+	printf("quantidade de numeros digitados: %f\n",contador);
+	printf("media dos numeros digitados: %f\n",total/contador);
+	printf("o menor numero digitado eh: %f\n, min");
+	printf("o maior numero digitado eh: %f\n, max");
+	printf("a media dos numeros pares eh: %f\n", totalpar/contadorpar);
+	printf("a porcentagem dos numeros impares do total eh: %f",(total-totalpar)/total*100);
+
+
+
+	
+}
