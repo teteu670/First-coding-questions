@@ -1,0 +1,47 @@
+#include <stdio.h>
+int main ()
+{
+	 float x,y;
+	 int op,resultado;
+
+	while(op!=5)
+	{
+	printf("qual operacao voce deseja fazer?\n");
+	printf("1.soma!\n");
+	printf("2.subtracao!\n");
+	printf("3.divisao!\n");
+	printf("4.multiplicacao!\n");
+	printf("5. sair!\n");
+	scanf("%d", &op);
+
+	printf("digite o primeiro numero: ");
+	scanf("%f", &x);
+
+	printf("digite o segundo numero: ");
+	scanf("%f", &y);
+
+	switch(op) {
+	case 1 :
+		printf("%.2f+%.2f=%.2f",x,y,x+y);
+	break;
+
+	case 2 :
+		printf("%.2f-%.2f=%.2f",x,y, x-y);
+	break;
+
+	case 3 :
+		printf("%.2f/%.2f=%.2f",x,y, x/y);
+	break;
+
+	case 4 :	
+		printf("%.2f*%.2f=%.2f",x,y, x*y);
+	break; 	
+	
+	case5: printf("saindo...");
+	break;
+	
+	default:
+		printf("operacao invalida");
+	}
+	}
+}
