@@ -1,0 +1,53 @@
+#include <stdio.h>
+int main () {
+
+    int opcao;
+    float valor, resultado;
+
+    printf("Escolha uma opcao:\n");
+    printf("1- real para dolar\n");
+    printf("2- real para euro\n");
+    printf("3- real para libra\n");
+    printf("4- dolar para real\n");
+    printf("5- euro para real\n");
+    printf("6- libra para real\n");
+
+    float usd_brl = 5.25;
+    float eur_brl = 5.60;
+    float gbp_brl = 6.80;
+
+    printf("opcao escolhida: ");
+    scanf("%d", &opcao);
+
+    printf("valor: ");
+    scanf("%f", &valor);
+
+    switch(opcao) {
+        case 1 : 
+        resultado = valor / usd_brl;
+        printf("valor em dolar: %.2f\n", resultado); break;
+
+        case 2 : 
+        resultado = valor / eur_brl;
+        printf("valor em euro: %.2f\n", resultado); break;
+
+        case 3 :
+        resultado = valor / gbp_brl;
+        printf("valor em libra: %.2f\n", resultado); break;
+
+        case 4 :
+        resultado = valor * usd_brl;
+        printf("valor em real: %.2f\n", resultado); break;
+
+        case 5 :
+        resultado = valor * eur_brl;
+        printf("valor em real: %.2f\n", resultado); break;
+
+        case 6 :
+        resultado = valor * gbp_brl;
+        printf("valor em real: %.2f\n", resultado); break;
+
+        
+    }
+
+}
