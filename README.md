@@ -1,1 +1,74 @@
 # First-coding-questions
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void exibirStatus(int vidaJogador, int vidaMonstro) {
+    printf("\n==========================\n");
+    printf("Vida do Jogador: %d\n", vidaJogador);
+    printf("Vida do Monstro: %d\n", vidaMonstro);
+    printf("==========================\n");
+}
+
+int main() {
+    int vidaJogador = 100, vidaMonstro = 100;
+    int escolha, danoJogador, danoMonstro, defesa = 0;
+
+    srand(time(NULL));
+
+    printf("Jogo da sorte\n");
+
+    while (vidaJogador > 0 && vidaMonstro > 0) {
+        exibirStatus(vidaJogador, vidaMonstro);
+
+        printf("\nEscolha sua acao:\n");
+        printf("1. Atacar\n");
+        printf("2. Defender\n");
+        printf("3. Curar\n");
+        printf("Sua escolha: ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+            case 1:
+                danoJogador = rand() % 20 + 10;
+                vidaMonstro -= danoJogador;
+                printf("Voce atacou e causou %d de dano!\n", danoJogador);
+                defesa = 0;
+                break;
+            case 2:
+                printf("Voce se defendeu! Proxima ataque do monstro sera reduzido.\n");
+                defesa = 1;
+                break;
+            case 3:
+                danoJogador = rand() % 20 + 10;
+                vidaJogador += danoJogador;
+                if (vidaJogador > 100) vidaJogador = 100;
+                printf("Voce se curou em %d pontos de vida!\n", danoJogador);
+                defesa = 0;
+                break;
+            default:
+                printf("Opcao invalida. Voce perdeu o turno.\n");
+                defesa = 0;
+                break;
+        }
+
+        if (vidaMonstro > 0) {
+            danoMonstro = rand() % 25 + 5;
+            if (defesa)
+                danoMonstro /= 2;
+            vidaJogador -= danoMonstro;
+            printf("O monstro atacou e causou %d de dano!\n", danoMonstro);
+        }
+    }
+
+    if (vidaJogador <= 0 && vidaMonstro <= 0) {
+        printf("\nEmpate! Ambos morreram.\n");
+    } else if (vidaJogador <= 0) {
+        printf("\nVoce perdeu! O monstro venceu.\n");
+    } else {
+        printf("\nVoce venceu o monstro! Parabens!\n");
+    }
+
+    return 0;
+}
