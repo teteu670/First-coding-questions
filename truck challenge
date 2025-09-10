@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int codigo_estado, codigo_carga;
+    float peso_toneladas, peso_quilos, preco_quilo, preco_carga, imposto, valor_total, taxa_imposto;
+
+    printf("Entre com o codigo de estado: ");
+    scanf("%d", &codigo_estado);
+
+    printf("Digite o peso da carga em toneladas: ");
+    scanf("%f", &peso_toneladas);
+
+    printf("Digite o codigo da carga: ");
+    scanf("%d", &codigo_carga);
+
+    peso_quilos = peso_toneladas * 1000;
+
+    if (codigo_carga >= 10 && codigo_carga <= 20) {
+        preco_quilo = 100;
+    } else if (codigo_carga >= 21 && codigo_carga <= 30) {
+        preco_quilo = 250;
+    } else if (codigo_carga >= 31 && codigo_carga <= 40) {
+        preco_quilo = 340;
+    } else {
+        printf("Codigo de carga invalido.\n");
+    }
+    preco_carga = peso_quilos * preco_quilo;
+
+    switch (codigo_estado) {
+        case 1: taxa_imposto = 0.35; break;
+        case 2: taxa_imposto = 0.25; break;
+        case 3: taxa_imposto = 0.15; break;
+        case 4: taxa_imposto = 0.05; break;
+        case 5: taxa_imposto = 0.00; break;
+        default:
+            printf("Codigo de estado invalido.\n");
+    }
+    imposto = preco_carga * taxa_imposto;
+
+    valor_total = preco_carga + imposto;
+
+    printf("\nResultados:\n");
+    printf("1. Peso da carga em quilos: %.2f kg\n", peso_quilos);
+    printf("2. Preco da carga: R$ %.2f\n", preco_carga);
+    printf("3. Valor do imposto: R$ %.2f\n", imposto);
+    printf("4. Valor total transportado: R$ %.2f\n", valor_total);
+}
