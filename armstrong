@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int aux, soma, contador, dig, num;
+
+    printf("Digite um numero: ");
+    scanf("%i", &num);
+
+    for (int i = 1; i <= num; i++) {
+        aux = i;
+        contador = 0;
+        soma = 0;
+
+        while (aux > 0) {
+            aux /= 10;
+            contador++;
+        }
+
+        aux = i;
+
+        while (aux > 0) {
+            dig = aux % 10;
+            aux /= 10;
+            soma += pow(dig, contador);
+        }
+
+        if (i == soma) {
+            printf("%d é um numero de Armstrong\n", i);
+        }
+    }
+
+    return 0;
+}
